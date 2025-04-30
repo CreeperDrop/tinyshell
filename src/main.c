@@ -1,14 +1,17 @@
 #include "shell.h"
 
+char* path_env = NULL;
+char* PATH;
 int main()
 {
+	PATH = getenv("PATH");
+
 	char line[200];
-	// char word[200];
 	char *cmd[20]; 
 	char *argc;
-	// char **argv;
-	 int i;
-	// int word_count;
+	int i;
+
+
 	while(1) {
 		print_line("tinyshell># ");
 		read_line(line);
@@ -21,8 +24,10 @@ int main()
 		//	}
 		// }
 
-		/* word_count = */ split_str(line, cmd);
-		// printf("Word Count = %d\n", word_count);
+		if (line[0] == '\0')
+			continue;
+
+		split_str(line, cmd, ' ');
 
 		argc = cmd[0];
 		if (!str_comp(argc, "exit"))
@@ -31,7 +36,7 @@ int main()
 		execute_command(argc, cmd);
 
 		for (i = 0; cmd[i] != NULL; ++i){
-			printf("%s\n", cmd[i]);
+			printf("cmd[%d]: %s\n", i, cmd[i]);
 		}
 
 	//	free(*cmd);
