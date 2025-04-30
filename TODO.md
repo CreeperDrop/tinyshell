@@ -6,7 +6,7 @@
 - [ ] Add support for a built-in `cd`
 - [ ] Add better error messages for failed commands or execution calls 
 - [ ] Add information messages for development purposes
-- [ ] Handle empty input (currently causes segfault)
+- [x] Handle empty input (currently causes segfault)
 
 ## Long-term goals (development hell)
 
