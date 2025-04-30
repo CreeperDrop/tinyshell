@@ -7,7 +7,6 @@ int split_str (char* str, char** split)
 
 	while (str[i] != '\0'){
 		
-		if(str[i] 
 
 		if (str[i] != ' ' && str[i] != '\0')
 			split[word_idx++] = &str[i];	
