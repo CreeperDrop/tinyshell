@@ -1,6 +1,6 @@
 #include "shell.h"
  
-int split_str (char* str, char** split)
+int split_str (char* str, char** split, char delimit)
 {
 	int i = 0;
 	int word_idx = 0;
@@ -8,10 +8,10 @@ int split_str (char* str, char** split)
 	while (str[i] != '\0'){
 		
 
-		if (str[i] != ' ' && str[i] != '\0')
+		if (str[i] != delimit && str[i] != '\0')
 			split[word_idx++] = &str[i];	
 
-		while (str[i] != '\0' && str[i] != ' ')
+		while (str[i] != '\0' && str[i] != delimit)
 			++i;
 
 		if (str[i] != '\0')
