@@ -1,5 +1,5 @@
 CC = cc
-CFLAGS = -Wall -Wextra -Werror -g -O3
+CFLAGS = -Wall -Wextra -Werror -O3
 
 SRC = $(wildcard src/*.c)
 OBJ = $(SRC:.c =.o)
@@ -15,7 +15,7 @@ tinyshell: $(OBJ)
 	chmod +x $@
 
 debug: $(OBJ)
-	$(CC) -g $(SRC) $(INC) -o $@ $(CFLAGS) 
+	$(CC) -g $(SRC) $(INC) -o $@ $(CFLAGS) -g
 	chmod +x $@
 
 	
