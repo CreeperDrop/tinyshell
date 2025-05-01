@@ -2,18 +2,18 @@
 
 ## Short-term goals
 
-- [x] ~Implement `$PATH` lookup capabilities so you can run external commands without `/bin/`~
-- [x] ~Add support for a built-in `cd`~
+- [x] Implement `$PATH` lookup capabilities so you can run external commands without `/bin/`
+- [x] Add support for a built-in `cd`
 - [ ] Add better error messages for failed commands or execution calls 
 - [ ] Add information messages for development purposes
-- [x] ~Handle empty input (currently causes segfault)~
+- [x] Handle empty input (currently causes segfault)
 
 ## Long-term goals (development hell)
 
 - [ ] Add background jobs support
 - [ ] Handle signals like Ctrl+C (`SIGINT`) 
 - [ ] Add support for exiting on Ctrl+D (`EOF`)
-- [x] ~Add a `help` built-in command describing built-ins and usage~
+- [x] Add a `help` built-in command describing built-ins and usage
 
 - [ ] Add I/O redirection capabilities like (`<`, `>`, `>>`)
 - [ ] Add piping support (`|`)
