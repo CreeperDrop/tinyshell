@@ -7,6 +7,14 @@
 #define MAX_CMD_WORD_LENGTH 200
 #define MAX_DIRS 100
 
+typedef enum {
+	BUILTIN_NONE = -1,
+	BUILTIN_CD,
+	BUILTIN_EXIT,
+	BUILTIN_HELP,
+	BUILTIN_COUNT
+} builtin_t;
+
 void read_line(char* line);
 void print_line(char* line);
 void get_first_word(char* str, char* first_word);
@@ -18,6 +26,11 @@ void str_concat(char* str1, char* str2, char* concat);
 // int search_path(char* argc);
 int search_path(char* argc, char* resolved_path);
 void str_copy(char* src, char* dest);
+builtin_t is_builtin(char* cmd);
+void builtin_execute(builtin_t builtin_id, char** args);
+void builtin_exit(int exit_code);
+int builtin_cd (char* dir_path);
+void builtin_help();
 
 extern char **environ;
 extern char *path_env;

@@ -30,8 +30,13 @@ int main()
 		split_str(line, cmd, ' ');
 
 		argc = cmd[0];
-		if (!str_comp(argc, "exit"))
-			return 0;
+		
+		builtin_t cmd_type = is_builtin(argc); 
+
+		if (cmd_type != -1) {
+			builtin_execute(cmd_type, cmd);
+			continue;
+		}
 
 		execute_command(argc, cmd);
 
