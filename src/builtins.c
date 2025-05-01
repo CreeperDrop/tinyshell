@@ -48,7 +48,7 @@ void builtin_exit(int exit_code)
 
 int builtin_cd (char* dir_path)
 {
-	if (dir_path == NULL){
+	if (dir_path == NULL || !str_comp(dir_path, "~")){
 		char* home = getenv("HOME");
 
 		if (home == NULL){
