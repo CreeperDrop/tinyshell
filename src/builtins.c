@@ -48,6 +48,20 @@ void builtin_exit(int exit_code)
 
 int builtin_cd (char* dir_path)
 {
+	if (dir_path == NULL){
+		char* home = getenv("HOME");
+
+		if (home == NULL){
+			print_line("cd: HOME not set\n");
+			return 1;
+		}
+		chdir(home);
+		print_line("Moved to ");
+		print_line(home);
+		print_line("\n");
+		return 0;
+	}
+	
 	if (chdir(dir_path) == 0) {
 		print_line("Moved to ");
 		print_line(dir_path);
