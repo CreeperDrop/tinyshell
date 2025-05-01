@@ -33,6 +33,3 @@ int builtin_cd (char* dir_path);
 void builtin_help();
 
 extern char **environ;
-extern char *path_env;
-extern char *PATH;
-//extern char *dirs[MAX_DIRS];

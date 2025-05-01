@@ -1,18 +1,16 @@
 #include "shell.h"
 
-char* path_env = NULL;
-char* PATH;
 int main()
 {
-	PATH = getenv("PATH");
 
 	char line[200];
 	char *cmd[20]; 
 	char *argc;
-	int i;
-
+//	int i;
 
 	while(1) {
+	//	for (i = 0; i < 22/* environ[i] != NULL */; ++i)
+	//		printf("environ[%d]: %s\n", i, environ[i]);
 		print_line("tinyshell># ");
 		read_line(line);
 
@@ -40,9 +38,9 @@ int main()
 
 		execute_command(argc, cmd);
 
-		for (i = 0; cmd[i] != NULL; ++i){
-			printf("cmd[%d]: %s\n", i, cmd[i]);
-		}
+//		for (i = 0; cmd[i] != NULL; ++i){
+//			printf("cmd[%d]: %s\n", i, cmd[i]);
+//		}
 
 	//	free(*cmd);
 	}

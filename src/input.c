@@ -25,7 +25,7 @@ int split_str (char* str, char** split, char delimit)
 }
 
 /*
-int split_str (char* str, char** split)
+int split_str (char* str, char** split, char delimit)
 {
 	int word_idx = 0;
 	int char_idx = 0;
@@ -33,7 +33,7 @@ int split_str (char* str, char** split)
 
 	for (i = 0; str[i] != '\0'; ++i){
 		
-		if (str[i] != ' '){
+		if (str[i] != delimit){
 			split[word_idx][char_idx++] = str[i];
 		} else if (char_idx > 0) {
 			split[word_idx++][char_idx] = '\0';
@@ -42,10 +42,10 @@ int split_str (char* str, char** split)
 	}
 
 
-	//if(char_idx > 0)
+	if(char_idx > 0)
 		split[word_idx][char_idx] = '\0';
 
-	split[++word_idx] = NULL;
+	 split[++word_idx] = NULL;
 	
 
 
@@ -53,6 +53,7 @@ int split_str (char* str, char** split)
 	return word_idx;
 }
 */
+
 void get_first_word(char* str, char* first_word)
 {
 	

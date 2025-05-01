@@ -58,13 +58,14 @@ void str_concat(char* str1, char* str2, char* concat)
 	
 	return;
 }
+/*
 void str_copy(char* src, char* dest) {
     while (*src) {
         *dest++ = *src++;
     }
     *dest = '\0';
 }
-/*
+*/
 void str_copy(char* src, char* dest)
 {
 	int i;
@@ -76,4 +77,4 @@ void str_copy(char* src, char* dest)
 
 	return;
 }
-*/
+
