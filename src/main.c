@@ -22,6 +22,7 @@ int main()
 		//	}
 		// }
 
+
 		if (line[0] == '\0')
 			continue;
 

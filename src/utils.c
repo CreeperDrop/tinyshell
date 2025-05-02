@@ -5,8 +5,12 @@ void read_line(char* line)
 	char c;
 	int i = 0;
 
-	while ( (c = getchar()) != '\n') {
+	while ( ((c = getchar())) != '\n') {
 		
+		if (c == EOF) {
+			putchar('\n');
+			exit(0);
+		}
 		if (c != '\b'){
 			line[i++] = c;
 		} else {
