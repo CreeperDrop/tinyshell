@@ -12,7 +12,7 @@
 
 - [ ] Add background jobs support
 - [ ] Handle signals like Ctrl+C (`SIGINT`) 
-- [ ] Add support for exiting on Ctrl+D (`EOF`)
+- [x] Add support for exiting on Ctrl+D (`EOF`)
 - [x] Add a `help` built-in command describing built-ins and usage
 
 - [ ] Add I/O redirection capabilities like (`<`, `>`, `>>`)
