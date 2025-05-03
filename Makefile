@@ -10,12 +10,12 @@ INC = -Iinclude
 
 all: tinyshell
 
-tinyshell: $(OBJ)
-	$(CC) $(SRC) $(INC) -o $@ $(CFLAGS) 
+tinyshell: $(SRC)
+	$(CC) $^ $(INC) -o $@ $(CFLAGS) 
 	chmod +x $@
 
-debug: $(OBJ)
-	$(CC) -g $(SRC) $(INC) -o $@ $(CFLAGS) -g
+debug: $(SRC)
+	$(CC) -g $^ $(INC) -o $@ $(CFLAGS) -g
 	chmod +x $@
 
 	
