@@ -6,16 +6,12 @@ OBJ = $(SRC:.c =.o)
 # INC = -I$(wildcard include/*.h)
 INC = -Iinclude
 
-.PHONY: all
-
-all: tinyshell
-
 tinyshell: $(SRC)
 	$(CC) $^ $(INC) -o $@ $(CFLAGS) 
 	chmod +x $@
 
 debug: $(SRC)
-	$(CC) -g $^ $(INC) -o $@ $(CFLAGS) -g
+	$(CC) $^ $(INC) -o $@ $(CFLAGS) -g
 	chmod +x $@
 
 	
