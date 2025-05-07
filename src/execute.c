@@ -19,6 +19,7 @@ void execute_command(char* argc, char** argv)
 	*/
 	
 	pid_t pid = fork();
+	siginfo_t info;
 
 	switch (pid){
 		case -1:
@@ -31,7 +32,6 @@ void execute_command(char* argc, char** argv)
 			_exit(EXIT_FAILURE);
 			break;
 		default:
-			siginfo_t info;
 			waitid(P_ALL, 0, &info, WEXITED);
 			break;
 	}
