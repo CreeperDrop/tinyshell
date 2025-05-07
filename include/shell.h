@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
+#include <signal.h>
 #include <sys/wait.h>
 #define MAX_CMD_CHAR_COUNT 200
 #define MAX_CMD_WORD_COUNT 200
