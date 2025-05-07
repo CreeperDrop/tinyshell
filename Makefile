@@ -1,17 +1,19 @@
+.POSIX:
+
 CC = cc
 CFLAGS = -Wall -Wextra -Werror -O3
 
-SRC = $(wildcard src/*.c)
-OBJ = $(SRC:.c =.o)
+SRC_DIR = src
+# OBJ = $(SRC:.c =.o)
 # INC = -I$(wildcard include/*.h)
 INC = -Iinclude
 
-tinyshell: $(SRC)
-	$(CC) $^ $(INC) -o $@ $(CFLAGS) 
+tinyshell: 
+	$(CC) $(SRC_DIR)/*.c $(INC) -o $@ $(CFLAGS) 
 	chmod +x $@
 
-debug: $(SRC)
-	$(CC) $^ $(INC) -o $@ $(CFLAGS) -g
+debug: 
+	$(CC) $(SRC_DIR)/*.c $(INC) -o $@ $(CFLAGS) -g
 	chmod +x $@
 
 	
