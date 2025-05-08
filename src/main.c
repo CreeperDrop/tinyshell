@@ -7,11 +7,13 @@ int main()
 	char *cmd[20]; 
 	char *argc;
 //	int i;
+	signal(SIGINT, sigint_handler);
+	
 
 	while(1) {
 	//	for (i = 0; i < 22/* environ[i] != NULL */; ++i)
 	//		printf("environ[%d]: %s\n", i, environ[i]);
-		print_line("tinyshell># ");
+		print_line(PROMPT);
 		read_line(line);
 
 		// for (i = 0; i < 20; i++) {

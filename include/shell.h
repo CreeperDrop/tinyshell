@@ -3,6 +3,7 @@
 #include <unistd.h>
 #include <signal.h>
 #include <sys/wait.h>
+#define PROMPT "tinyshell># "
 #define MAX_CMD_CHAR_COUNT 200
 #define MAX_CMD_WORD_COUNT 200
 #define MAX_CMD_WORD_LENGTH 200
@@ -32,5 +33,6 @@ void builtin_execute(builtin_t builtin_id, char** args);
 void builtin_exit(int exit_code);
 int builtin_cd (char* dir_path);
 void builtin_help();
+void sigint_handler();
 
 extern char **environ;
