@@ -1,5 +1,7 @@
 #include "shell.h"
 
+
+int is_child_running = 0;
 int main()
 {
 
@@ -9,7 +11,6 @@ int main()
 //	int i;
 	signal(SIGINT, sigint_handler);
 	
-
 	while(1) {
 	//	for (i = 0; i < 22/* environ[i] != NULL */; ++i)
 	//		printf("environ[%d]: %s\n", i, environ[i]);

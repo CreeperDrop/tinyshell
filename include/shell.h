@@ -36,3 +36,4 @@ void builtin_help();
 void sigint_handler();
 
 extern char **environ;
+extern int is_child_running;

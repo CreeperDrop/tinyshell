@@ -32,7 +32,9 @@ void execute_command(char* argc, char** argv)
 			_exit(EXIT_FAILURE);
 			break;
 		default:
+			is_child_running = 1;
 			waitid(P_ALL, 0, &info, WEXITED);
+			is_child_running = 0;
 			break;
 	}
 
