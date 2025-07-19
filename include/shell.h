@@ -3,6 +3,7 @@
 #include <unistd.h>
 #include <signal.h>
 #include <sys/wait.h>
+#include <fcntl.h>
 #define PROMPT "tinyshell># "
 #define MAX_CMD_CHAR_COUNT 200
 #define MAX_CMD_WORD_COUNT 200

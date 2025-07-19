@@ -13,7 +13,7 @@
 - [x] Add support for exiting on Ctrl+D (`EOF`)
 - [x] Add a `help` built-in command describing built-ins and usage
 
-- [ ] Add I/O redirection capabilities like (`<`, `>`, `>>`)
+- [x] Add I/O redirection capabilities like (`>`, `>>`)
 - [ ] Add piping support (`|`)
 - [ ] Add command history
 - [x] Port TinyShell to FreeBSD as a learning exercise

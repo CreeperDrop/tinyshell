@@ -19,12 +19,30 @@ void execute_command(char* argc, char** argv)
 	*/
 	int i;
 	int is_background = 0;
-	
+	int is_append = 0;
+	int is_create = 0;
+	char *file_dest;
+	int fd = -1;
+
 	for (i = 0; argv[i] != NULL; ++i){
 		if(argv[i][0] == '&'){
 			is_background = 1;
 			argv[i] = NULL;
-			break;
+		}
+
+	}
+
+	for(i = 0; argv[i] != NULL; ++i){
+
+		if(argv[i][0] == '>'){
+			if(argv[i][1] == '>')
+				is_append = 1;
+			else
+				is_create = 1;
+
+			file_dest = argv[i+1];
+			argv[i] = NULL;
+
 		}
 	}
 
@@ -38,7 +56,20 @@ void execute_command(char* argc, char** argv)
 			break;
 		case 0:
 		//	execve(resolved_path, argv, environ); // --> This creates problem because str_split
+
+			if(is_create){
+				fd = open(file_dest, O_WRONLY | O_CREAT | O_TRUNC, 0666);
+				dup2(fd, 1);  // stdout go to file
+				dup2(fd, 2);  // stderr go to file
+			}
+			if(is_append){
+				fd = open(file_dest, O_WRONLY | O_CREAT | O_APPEND, 0666);
+				dup2(fd, 1);  // stdout go to file
+				dup2(fd, 2);  // stderr go to file
+			}
+
 		 	execvp(argc, argv); // --> This uses internal PATH search
+			close(fd);
 			perror("execve");
 			_exit(EXIT_FAILURE);
 			break;
