@@ -4,8 +4,6 @@
 
 - [x] Implement `$PATH` lookup capabilities so you can run external commands without `/bin/`
 - [x] Add support for a built-in `cd`
-- [ ] Add better error messages for failed commands or execution calls 
-- [ ] Add information messages for development purposes
 - [x] Handle empty input (currently causes segfault)
 
 ## Long-term goals (development hell)
