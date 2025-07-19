@@ -8,7 +8,7 @@
 
 ## Long-term goals (development hell)
 
-- [ ] Add background jobs support
+- [x] Add background jobs support
 - [x] Handle signals like Ctrl+C (`SIGINT`) 
 - [x] Add support for exiting on Ctrl+D (`EOF`)
 - [x] Add a `help` built-in command describing built-ins and usage

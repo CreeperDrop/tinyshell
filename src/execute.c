@@ -17,9 +17,20 @@ void execute_command(char* argc, char** argv)
 		str_copy(argc, resolved_path);
 	}
 	*/
+	int i;
+	int is_background = 0;
 	
+	for (i = 0; argv[i] != NULL; ++i){
+		if(argv[i][0] == '&'){
+			is_background = 1;
+			argv[i] = NULL;
+			break;
+		}
+	}
+
 	pid_t pid = fork();
-	siginfo_t info;
+//	siginfo_t info;
+
 
 	switch (pid){
 		case -1:
@@ -33,7 +44,12 @@ void execute_command(char* argc, char** argv)
 			break;
 		default:
 			is_child_running = 1;
-			waitid(P_ALL, 0, &info, WEXITED);
+			
+			if(!is_background)
+				waitpid(pid, NULL, 0);
+			else
+				printf("Background PID: %d\n", pid);
+
 			is_child_running = 0;
 			break;
 	}
