@@ -23,7 +23,7 @@ void print_line(char* line);
 void get_first_word(char* str, char* first_word);
 // int split_str (char* str, char** split);
 int split_str (char* str, char** split, char delimit);
-void execute_command(char* argc, char** argv);
+int execute_command(char* argc, char** argv);
 int str_comp(char* str1, char* str2);
 void str_concat(char* str1, char* str2, char* concat);
 // int search_path(char* argc);

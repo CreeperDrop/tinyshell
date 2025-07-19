@@ -40,7 +40,10 @@ int main()
 			continue;
 		}
 
-		execute_command(argc, cmd);
+		int status = execute_command(argc, cmd);
+		
+		if(status == 1)
+			printf("An error happened\n");
 
 //		for (i = 0; cmd[i] != NULL; ++i){
 //			printf("cmd[%d]: %s\n", i, cmd[i]);

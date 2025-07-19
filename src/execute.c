@@ -1,6 +1,6 @@
 #include "shell.h"
 
-void execute_command(char* argc, char** argv)
+int execute_command(char* argc, char** argv)
 {
 	/*
 	char resolved_path[MAX_CMD_WORD_LENGTH];
@@ -21,7 +21,7 @@ void execute_command(char* argc, char** argv)
 	int is_background = 0;
 	int is_append = 0;
 	int is_create = 0;
-	char *file_dest;
+	char *file_dest = NULL;
 	int fd = -1;
 
 	for (i = 0; argv[i] != NULL; ++i){
@@ -59,11 +59,19 @@ void execute_command(char* argc, char** argv)
 
 			if(is_create){
 				fd = open(file_dest, O_WRONLY | O_CREAT | O_TRUNC, 0666);
+				if(fd == -1){
+					printf("Can't open file %s\n", file_dest);
+					return 1;
+				}
 				dup2(fd, 1);  // stdout go to file
 				dup2(fd, 2);  // stderr go to file
 			}
 			if(is_append){
 				fd = open(file_dest, O_WRONLY | O_CREAT | O_APPEND, 0666);
+				if(fd == -1){
+					printf("Can't open file %s\n", file_dest);
+					return 1;
+				}
 				dup2(fd, 1);  // stdout go to file
 				dup2(fd, 2);  // stderr go to file
 			}
@@ -86,7 +94,7 @@ void execute_command(char* argc, char** argv)
 	}
 
 
-	return;
+	return 0;
 }
 
 int search_path(char* argc, char* resolved_path)
