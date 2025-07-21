@@ -11,6 +11,9 @@ builtin_t is_builtin(char* cmd)
 	
 	if (str_comp(cmd, "help") == 0)
 		return BUILTIN_HELP;
+
+	if (str_comp(cmd, "hist") == 0)
+		return BUILTIN_HISTORY;
 	
 	return BUILTIN_NONE;
 
@@ -29,6 +32,10 @@ void builtin_execute(builtin_t builtin_id, char** args)
 
 		case BUILTIN_HELP:
 			builtin_help();
+			break;
+		
+		case BUILTIN_HISTORY:
+			builtin_history();
 			break;
 
 		default:
@@ -76,5 +83,22 @@ int builtin_cd (char* dir_path)
 void builtin_help()
 {
 	print_line("Help...\n");
+	return;
+}
+
+void builtin_history()
+{
+	int i;
+	// char *history[10];
+	//  int hist_ptr;
+	printf("hist_ptr = %d\n", hist_ptr);
+	if (hist_ptr == 0){
+		print_line("No history... \n");
+		return;
+	}
+
+	for (i = 0; i <= hist_ptr; ++i)
+		printf("%s\n", history[i]);
+
 	return;
 }

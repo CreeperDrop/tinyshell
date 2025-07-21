@@ -15,6 +15,7 @@ typedef enum {
 	BUILTIN_CD,
 	BUILTIN_EXIT,
 	BUILTIN_HELP,
+	BUILTIN_HISTORY,
 	BUILTIN_COUNT
 } builtin_t;
 
@@ -35,6 +36,9 @@ void builtin_exit(int exit_code);
 int builtin_cd (char* dir_path);
 void builtin_help();
 void sigint_handler();
+void builtin_history();
 
 extern char **environ;
 extern int is_child_running;
+extern char history[200][10];
+extern int hist_ptr;

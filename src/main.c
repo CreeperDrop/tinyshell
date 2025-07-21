@@ -8,7 +8,6 @@ int hist_ptr = 0;
 int main()
 {
 
-	int i;
 	char line[200];
 	char *cmd[20]; 
 	char *argc;
@@ -21,6 +20,13 @@ int main()
 
 		if (line[0] == '\0')
 			continue;
+
+		str_copy(line, history[hist_ptr]);
+
+		if(hist_ptr+1 == 10)
+			hist_ptr = 0;
+		else
+			++hist_ptr;
 
 		split_str(line, cmd, ' ');
 
