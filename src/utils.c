@@ -11,8 +11,6 @@ void read_line(char* line)
 			putchar('\n');
 			exit(0);
 		}
-		if (c == '^')
-			return;
 
 		if (c != '\b'){
 			line[i++] = c;
