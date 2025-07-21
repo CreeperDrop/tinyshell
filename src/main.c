@@ -2,29 +2,22 @@
 
 
 int is_child_running = 0;
+char history[200][10];
+int hist_ptr = 0;
+
 int main()
 {
 
+	int i;
 	char line[200];
 	char *cmd[20]; 
 	char *argc;
-//	int i;
+
 	signal(SIGINT, sigint_handler);
 	
 	while(1) {
-	//	for (i = 0; i < 22/* environ[i] != NULL */; ++i)
-	//		printf("environ[%d]: %s\n", i, environ[i]);
 		print_line(PROMPT);
 		read_line(line);
-
-		// for (i = 0; i < 20; i++) {
-		// 	cmd[i] = malloc(MAX_CMD_WORD_LENGTH * sizeof(char));  // Allocate memory for each word
-		//	if (cmd[i] == NULL) {  // Ensure memory allocation succeeded
-		//		printf("Memory allocation failed for cmd[%d]\n", i);
-		//		return 1;  // Exit if allocation fails
-		//	}
-		// }
-
 
 		if (line[0] == '\0')
 			continue;
@@ -45,11 +38,6 @@ int main()
 		if(status == 1)
 			printf("An error happened\n");
 
-//		for (i = 0; cmd[i] != NULL; ++i){
-//			printf("cmd[%d]: %s\n", i, cmd[i]);
-//		}
-
-	//	free(*cmd);
 	}
 	return 0;
 }
