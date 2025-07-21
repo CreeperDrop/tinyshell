@@ -15,7 +15,7 @@
 
 - [x] Add I/O redirection capabilities like (`>`, `>>`)
 - [x] Add piping support (`|`)
-- [ ] Add command history
+- [x] Add command history
 - [x] Port TinyShell to FreeBSD as a learning exercise
 
 ## Notes to self
